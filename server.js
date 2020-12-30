@@ -26,7 +26,7 @@ app.post("/guiapsv", function(request, response) {
     request: request,
     response: response
   });
-
+ 
   let intentMap = new Map();
   intentMap.set("insere", cadastro);
   intentMap.set("alimentacao", pesquisa);
@@ -97,7 +97,7 @@ getDoc().then(doc => {
                 row.delete().then(() => {
                     console.log('Dado deletado!');
 response.json({
-"fulfillmentText": "_O seu anúncio foi excluído com sucesso !_" + "\n\n" +
+"fulfillmentText": "_O seu anÃºncio foi excluÃ­do com sucesso !_" + "\n\n" +
                 "_Para Voltar ao Menu Inicial Digite *OK*_"
             }); 
 
@@ -106,7 +106,7 @@ response.json({
             }
           else if (row.Senha ===! Senha){
 response.json({
-"fulfillmentText": "_Senha Inválida !_"                
+"fulfillmentText": "_Senha InvÃ¡lida !_"                
             }); 
           }
         });
@@ -114,7 +114,7 @@ response.json({
 })
 }  
   
-  //FUNÇÃO DE CADASTRO DE LEADS
+  //FUNÃ‡ÃƒO DE CADASTRO DE LEADS
 async function cadastro(agent) {
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const credenciais = {
@@ -180,7 +180,7 @@ sheet.addRow({
    //   data
    // );
     agent.add(
-      "_O seu anúncio foi publicado com sucesso !_"
+      "_O seu anÃºncio foi publicado com sucesso !_"
     );
     agent.add(
       "Para Voltar ao Menu Inicial Digite *OK*"
@@ -243,7 +243,7 @@ getDoc().then(doc => {
 //              datax  +
 //                "\n\n" +
 //                "_Para Voltar ao Menu Inicial Digite *OK*_"
-"fulfillmentText": "_Quer o seu negócio aqui no topo ? Conheça nossa proposta_" + "\n\n" + datax  +
+"fulfillmentText": "_Quer o seu negÃ³cio aqui no topo ? ConheÃ§a nossa proposta_" + "\n\n" + datax  +
                 "\n\n" +
                 "_Para Voltar ao Menu Inicial Digite *OK*_"
             }); 
