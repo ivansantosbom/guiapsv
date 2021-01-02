@@ -98,7 +98,7 @@ getDoc().then(doc => {
                     console.log('Dado deletado!');
 response.json({
 "fulfillmentText": "_O seu anúncio foi excluído com sucesso !_" + "\n\n" +
-                "_Para Voltar ao Menu Inicial Digite *OK*_"
+                "_Para Voltar ao Menu Inicial Digite *Tel*_"
             }); 
 
   
@@ -183,7 +183,7 @@ sheet.addRow({
       "_O seu anúncio foi publicado com sucesso !_"
     );
     agent.add(
-      "Para Voltar ao Menu Inicial Digite *OK*"
+      "Para Voltar ao Menu Inicial Digite *Tel*"
     );
   }
 
@@ -245,7 +245,7 @@ getDoc().then(doc => {
 //                "_Para Voltar ao Menu Inicial Digite *OK*_"
 "fulfillmentText": "_Quer o seu negócio aqui no topo ? Conheça nossa proposta_" + "\n\n" + datax  +
                 "\n\n" +
-                "_Para Voltar ao Menu Inicial Digite *OK*_"
+                "_Para Voltar ao Menu Inicial Digite *Tel*_"
             }); 
         })
     })
