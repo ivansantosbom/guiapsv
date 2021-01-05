@@ -135,7 +135,7 @@ getDoc().then(doc => {
    //     Subcat: subcat
    //   }
    // ];
-  desc = desc.toLowerCase();
+  var desc = desc.toLowerCase();
   let sheet; 
 getDoc().then(doc => {
     sheet = doc.sheetsByIndex[0];
