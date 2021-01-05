@@ -29,32 +29,8 @@ app.post("/guiapsv", function(request, response) {
  
   let intentMap = new Map();
   intentMap.set("insere", cadastro);
-  intentMap.set("alimentacao", pesquisa);
   intentMap.set("excluir", exclui);
-  intentMap.set("emergencia", pesquisa);
-  intentMap.set("achados", pesquisa);
-  intentMap.set("animais", pesquisa);
-  intentMap.set("automoveis", pesquisa);
-  intentMap.set("beleza", pesquisa);
-  intentMap.set("celulares", pesquisa);
-  intentMap.set("construcao", pesquisa);
-  intentMap.set("decoracao", pesquisa);
-  intentMap.set("diversao", pesquisa);
-  intentMap.set("doacao", pesquisa);
-  intentMap.set("educacao", pesquisa);
-  intentMap.set("festas", pesquisa);
-  intentMap.set("hospedagem", pesquisa);
-  intentMap.set("imoveis", pesquisa);
-  intentMap.set("industria", pesquisa);
-  intentMap.set("informatica", pesquisa);
-  intentMap.set("instituicao", pesquisa);
-  intentMap.set("moda", pesquisa);
-  intentMap.set("moveis", pesquisa);
-  intentMap.set("musica", pesquisa);
-  intentMap.set("prestadores", pesquisa);
-  intentMap.set("propaganda", pesquisa);
-  intentMap.set("saude", pesquisa);
-  intentMap.set("transportes", pesquisa);
+  intentMap.set("grupo", pesquisa);
 
   agent.handleRequest(intentMap);
 
@@ -98,7 +74,7 @@ getDoc().then(doc => {
                     console.log('Dado deletado!');
 response.json({
 "fulfillmentText": "_O seu anúncio foi excluído com sucesso !_" + "\n\n" +
-                "_Para Voltar ao Menu Inicial Digite *Tel*_"
+                "_Para Inserir Seu Produto ou Serviço Fale Comigo No Privado_"
             }); 
 
   
@@ -183,7 +159,7 @@ sheet.addRow({
       "_O seu anúncio foi publicado com sucesso !_"
     );
     agent.add(
-      "Para Voltar ao Menu Inicial Digite *Tel*"
+      "Para conferir basta fazer uma pergunta contendo a sua palavra chave. exemplo: *alguém vende quentinha ?*"
     );
   }
 
@@ -204,7 +180,7 @@ const credenciais = {
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow%40hiu-upjn.iam.gserviceaccount.com"
 }
-
+   let user_input = agent.query;
 const getDoc = async () => {
     const doc = new GoogleSpreadsheet("1miAwy9g53saRiR1uxURkoWl_PbmE1yAgtRX3o88El9c");
     
@@ -225,7 +201,12 @@ getDoc().then(doc => {
         rows.map(row => {
             console.log(row.Nome);
               var count2 = rows.length;
+          agent.add(user_input);
     var datax = '';
+          var msgx = '';
+          if (count2 > 0) {
+            var msgx = 'Ninguém ainda inseriu um anuncio nesta palavra-chave';
+          }
           var i = 0;
         for (i = 0; i < count2; i++) {
           if (rows[i].Cat === Telefone1 && rows[i].Subcat === Telefone)
@@ -245,7 +226,9 @@ getDoc().then(doc => {
 //                "_Para Voltar ao Menu Inicial Digite *OK*_"
 "fulfillmentText": "_Quer o seu negócio aqui no topo ? Conheça nossa proposta_" + "\n\n" + datax  +
                 "\n\n" +
-                "_Para Voltar ao Menu Inicial Digite *Tel*_"
+            msgx +
+            "\n\n" +
+                "_Para Inserir Seu Produto ou Serviço Fale Comigo No Privado_"
             }); 
         })
     })
