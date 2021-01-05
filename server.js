@@ -135,6 +135,7 @@ getDoc().then(doc => {
    //     Subcat: subcat
    //   }
    // ];
+  desc = desc.toLowerCase();
   let sheet; 
 getDoc().then(doc => {
     sheet = doc.sheetsByIndex[0];
@@ -180,7 +181,7 @@ const credenciais = {
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow%40hiu-upjn.iam.gserviceaccount.com"
 }
-   let user_input = agent.query;
+   var user_input = request.body.queryResult.queryText;
 const getDoc = async () => {
     const doc = new GoogleSpreadsheet("1miAwy9g53saRiR1uxURkoWl_PbmE1yAgtRX3o88El9c");
     
@@ -201,15 +202,23 @@ getDoc().then(doc => {
         rows.map(row => {
             console.log(row.Nome);
               var count2 = rows.length;
-          agent.add(user_input);
+          user_input = user_input.toLowerCase();
+          var user_input = user_input.split(" ");
+          user_input = user_input.filter(function(item) { 
+  return item.length > 2;
+});
+              var count3 = user_input.length;
+          //agent.add(user_input);
     var datax = '';
           var msgx = '';
           if (count2 > 0) {
             var msgx = 'Ninguém ainda inseriu um anuncio nesta palavra-chave';
           }
           var i = 0;
+          var z = 0;
+          for (z = 0; z < count3; z++) {
         for (i = 0; i < count2; i++) {
-          if (rows[i].Cat === Telefone1 && rows[i].Subcat === Telefone)
+          if (rows[i].Desc.includes(user_input[z]) === true) {
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
@@ -217,8 +226,9 @@ getDoc().then(doc => {
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
+          }
         }
-
+}
           response.json({
 //             fulfillmentText:
 //              datax  +
