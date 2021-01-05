@@ -203,6 +203,7 @@ getDoc().then(doc => {
             console.log(row.Nome);
               var count2 = rows.length;
            var user_input = request.body.queryResult.queryText;
+                     var user_input2 = request.body.queryResult.queryText;
           console.log(user_input);
           var user_input = user_input.toLowerCase();
           var user_input = user_input.replace("vende", "");
@@ -248,7 +249,7 @@ getDoc().then(doc => {
         }
 }
                     if (datax.length < 10) {
-            var msgx = 'Ninguém ainda inseriu um anuncio nesta palavra-chave';
+            var msgx = 'Sua busca: *' + user_input2 + '*' + "\n" + 'Ninguém inseriu um anuncio nesta palavra-chave ainda';
           }
           response.json({
 //             fulfillmentText:
