@@ -181,7 +181,7 @@ const credenciais = {
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow%40hiu-upjn.iam.gserviceaccount.com"
 }
-   var user_input = request.body.queryResult.queryText;
+  
 const getDoc = async () => {
     const doc = new GoogleSpreadsheet("1miAwy9g53saRiR1uxURkoWl_PbmE1yAgtRX3o88El9c");
     
@@ -202,7 +202,26 @@ getDoc().then(doc => {
         rows.map(row => {
             console.log(row.Nome);
               var count2 = rows.length;
-          user_input = user_input.toLowerCase();
+           var user_input = request.body.queryResult.queryText;
+          console.log(user_input);
+          var user_input = user_input.toLowerCase();
+          var user_input = user_input.replace("vende", "");
+          var user_input = user_input.replace("venda", "");
+          var user_input = user_input.replace("aluga", "");
+          var user_input = user_input.replace("alugu", "");
+          var user_input = user_input.replace("compr", "");
+          var user_input = user_input.replace("tem ", "");
+          var user_input = user_input.replace("sabe ", "");
+          var user_input = user_input.replace("troca ", "");
+          var user_input = user_input.replace("pode ", "");
+          var user_input = user_input.replace("tel ", "");
+          var user_input = user_input.replace("contato ", "");
+          var user_input = user_input.replace("entrega", "");
+          var user_input = user_input.replace("entregue ", "");
+          var user_input = user_input.replace("ado ", "");
+          var user_input = user_input.replace("ido ", "");
+          var user_input = user_input.replace("ndo ", "");
+          
           var user_input = user_input.split(" ");
           user_input = user_input.filter(function(item) { 
   return item.length > 2;
@@ -211,14 +230,13 @@ getDoc().then(doc => {
           //agent.add(user_input);
     var datax = '';
           var msgx = '';
-          if (count2 > 0) {
-            var msgx = 'Ninguém ainda inseriu um anuncio nesta palavra-chave';
-          }
           var i = 0;
           var z = 0;
+          console.log(user_input);
           for (z = 0; z < count3; z++) {
         for (i = 0; i < count2; i++) {
           if (rows[i].Desc.includes(user_input[z]) === true) {
+            //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
@@ -229,6 +247,9 @@ getDoc().then(doc => {
           }
         }
 }
+                    if (datax.length < 10) {
+            var msgx = 'Ninguém ainda inseriu um anuncio nesta palavra-chave';
+          }
           response.json({
 //             fulfillmentText:
 //              datax  +
