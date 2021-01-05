@@ -236,7 +236,7 @@ getDoc().then(doc => {
           console.log(user_input);
           for (z = 0; z < count3; z++) {
         for (i = 0; i < count2; i++) {
-          if (rows[i].Desc.includes(user_input[z]) === true) {
+          if (rows[i].Desc.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false) {
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
