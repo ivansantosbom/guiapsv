@@ -135,13 +135,13 @@ getDoc().then(doc => {
    //     Subcat: subcat
    //   }
    // ];
-  var desc = desc.toLowerCase();
+  var desc2 = desc.toLowerCase();
   let sheet; 
 getDoc().then(doc => {
     sheet = doc.sheetsByIndex[0];
 sheet.addRow({
         Nome: nome,
-        Desc: desc,
+        Desc: desc2,
         Zap: ctt,
         Cat: cat,
         Subcat: subcat,
