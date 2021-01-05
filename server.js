@@ -222,6 +222,7 @@ getDoc().then(doc => {
           var user_input = user_input.replace("ado ", "");
           var user_input = user_input.replace("ido ", "");
           var user_input = user_input.replace("ndo ", "");
+          var user_input = user_input.replace("com ", "");
           
           var user_input = user_input.split(" ");
           user_input = user_input.filter(function(item) { 
