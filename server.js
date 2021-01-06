@@ -200,16 +200,13 @@ getDoc().then(doc => {
     sheet = doc.sheetsByIndex[0];
     sheet.getRows().then(rows => {
         rows.map(row => {
-            console.log(row.Nome);
+          //  console.log(row.Nome);
               var count2 = rows.length;
            var user_input = request.body.queryResult.queryText;
                      var user_input2 = request.body.queryResult.queryText;
           console.log(user_input);
           var user_input = user_input.toLowerCase();
-          var user_input = user_input.replace("vende", "vendo");
-          var user_input = user_input.replace("venda", "vendo");
-          var user_input = user_input.replace("alugar", "alugo");
-          var user_input = user_input.replace("alugu", "alugo");
+          var user_input = user_input.replace("?", "");
           var user_input = user_input.replace("compr", "");
           var user_input = user_input.replace("tem ", "");
           var user_input = user_input.replace("sabe ", "");
@@ -222,13 +219,26 @@ getDoc().then(doc => {
           var user_input = user_input.replace("ado ", "");
           var user_input = user_input.replace("ido ", "");
           var user_input = user_input.replace("ndo ", "");
+          var user_input = user_input.replace("ado", "");
+          var user_input = user_input.replace("ido", "");
+          var user_input = user_input.replace("ndo", "");
+          var user_input = user_input.replace("vende", "vendo ");
+          var user_input = user_input.replace("venda", "vendo ");
+          var user_input = user_input.replace("aluga", "alugo ");
+          var user_input = user_input.replace("alugu", "alugo ");
           var user_input = user_input.replace("com ", "");
           var user_input = user_input.replace("bom dia", "");
           var user_input = user_input.replace("boa tarde", "");
           var user_input = user_input.replace("boa noite", "");
           var user_input = user_input.replace("número", "");
           var user_input = user_input.replace("numero", "");
-
+          var user_input = user_input.replace("abert", "");
+          var user_input = user_input.replace("alguém", "");
+var user_input = user_input.replace("alguem", "");
+          var user_input = user_input.replace("alguma", "");
+          var user_input = user_input.replace("algum", "");
+          var user_input = user_input.replace("tv", "televisao "); 
+          var user_input = user_input.trim();
           var user_input = user_input.split(" ");
           user_input = user_input.filter(function(item) { 
   return item.length > 2;
@@ -236,6 +246,7 @@ getDoc().then(doc => {
               var count3 = user_input.length;
           //agent.add(user_input);
     var datax = '';
+              var datax3 = '';
           var msgx = '';
           var i = 0;
           var z = 0;
@@ -243,21 +254,25 @@ getDoc().then(doc => {
           for (z = 0; z < count3; z++) {
         for (i = 0; i < count2; i++) {
           var x = z + 1;
-          if (x > count3) {
-            var x = count3;
-          }
+          var xn = z - 1;
+       //   if (x > count3) {
+       //     var x = count3;
+       //   }
           var comp = rows[i].Desc;
-          var comp = comp.substring(0, comp.indexOf('lado'));
-          var comp = comp.substring(0, comp.indexOf('perto'));
-          var comp = comp.substring(0, comp.indexOf('depois'));
-          var comp = comp.substring(0, comp.indexOf('proximo'));
-          var comp = comp.substring(0, comp.indexOf('próximo'));
-          var comp = comp.substring(0, comp.indexOf('na rua'));
-          
+          var comp = comp.split("lado")[0];
+          var comp = comp.split("perto")[0];
+          var comp = comp.split("na rua")[0];
+          var comp = comp.split("próximo")[0];
+          var comp = comp.split("depois")[0];
+          var comp = comp.split("proximo")[0];
+                    var comp = comp.split("frente")[0];
+
+          //console.log(comp);
             //        if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
             //var z = z + 1000;
-          if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
-          var datax = datax  +
+          if (datax3.includes(rows[i].Desc) === false) {
+          if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true) {
+          var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
                 "_"+rows[i].Desc + "_" +
@@ -265,8 +280,26 @@ getDoc().then(doc => {
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
           }
-          var datax2 = datax;
-          if (comp.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false && datax2.length < 12) {
+          } 
+          
+                    if (datax3.includes(rows[i].Desc) === false) {
+                      
+          if (comp.includes(user_input[xn]) === true && comp.includes(user_input[z]) === true) {
+          var datax3 = datax3  +
+                "*"+rows[i].Nome + "*"+
+                "\n" +
+                "_"+rows[i].Desc + "_" +
+                "\n" +
+                "_*"+rows[i].Zap + "*_" +
+                "\n\n" 
+          }
+          } 
+          //var datax2 = datax3;
+         // console.log(datax3.length);
+          if (datax3.length < 10) {
+            var user_input = user_input.filter(e => e !== 'vendo');
+            var user_input = user_input.filter(e => e !== 'alugo');
+          if (comp.includes(user_input[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
@@ -275,10 +308,15 @@ getDoc().then(doc => {
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
+           }
           }
         }
-}
-                    if (datax.length < 10) {
+      }
+          var datax = datax.trim();
+          var datax3 = datax3.trim(); 
+          var final = datax3;
+          if (datax3.length < 1) { var final = datax; }
+                    if (datax.length < 10 && datax3.length < 10) {
             var msgx = 'Sua busca: *' + user_input2 + '*' + "\n" + 'Ninguém inseriu um anuncio nesta palavra-chave ainda';
           }
           response.json({
@@ -286,10 +324,10 @@ getDoc().then(doc => {
 //              datax  +
 //                "\n\n" +
 //                "_Para Voltar ao Menu Inicial Digite *OK*_"
-"fulfillmentText": "_Quer o seu negócio aqui no topo ? Conheça nossa proposta_" + "\n\n" + datax  +
-                "\n\n" +
+"fulfillmentText": "_Quer o seu negócio aqui no topo ? Conheça nossa proposta_" + "\n\n" + final  +
+                "\n" +
             msgx +
-            "\n\n" +
+            "\n" +
                 "_Para Inserir Seu Produto ou Serviço Fale Comigo No Privado_"
             }); 
         })
@@ -297,7 +335,7 @@ getDoc().then(doc => {
 })
 
   }
-});
+}); 
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
