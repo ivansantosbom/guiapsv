@@ -317,7 +317,7 @@ var user_input = user_input.replace("alguem", "");
           var final = datax3;
           if (datax3.length < 1) { var final = datax; }
                     if (datax.length < 10 && datax3.length < 10) {
-            var msgx = 'Sua busca: *' + user_input2 + '*' + "\n" + 'Ninguém inseriu um anuncio nesta palavra-chave ainda';
+            var msgx = 'Sua busca: *' + user_input2 + '*' + "\n" + 'Ninguém inseriu um anuncio nesta palavra-chave ainda' + "\n";
           }
           response.json({
 //             fulfillmentText:
