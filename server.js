@@ -206,10 +206,10 @@ getDoc().then(doc => {
                      var user_input2 = request.body.queryResult.queryText;
           console.log(user_input);
           var user_input = user_input.toLowerCase();
-          var user_input = user_input.replace("vende", "");
-          var user_input = user_input.replace("venda", "");
-          var user_input = user_input.replace("aluga", "");
-          var user_input = user_input.replace("alugu", "");
+          var user_input = user_input.replace("vende", "vendo");
+          var user_input = user_input.replace("venda", "vendo");
+          var user_input = user_input.replace("alugar", "alugo");
+          var user_input = user_input.replace("alugu", "alugo");
           var user_input = user_input.replace("compr", "");
           var user_input = user_input.replace("tem ", "");
           var user_input = user_input.replace("sabe ", "");
@@ -223,6 +223,11 @@ getDoc().then(doc => {
           var user_input = user_input.replace("ido ", "");
           var user_input = user_input.replace("ndo ", "");
           var user_input = user_input.replace("com ", "");
+          var user_input = user_input.replace("bom dia", "");
+          var user_input = user_input.replace("boa tarde", "");
+          var user_input = user_input.replace("boa noite", "");
+          var user_input = user_input.replace("número", "");
+          var user_input = user_input.replace("numero", "");
           
           var user_input = user_input.split(" ");
           user_input = user_input.filter(function(item) { 
@@ -237,7 +242,22 @@ getDoc().then(doc => {
           console.log(user_input);
           for (z = 0; z < count3; z++) {
         for (i = 0; i < count2; i++) {
-          if (rows[i].Desc.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false) {
+          var x = z + 1;
+          if (x > count3) {
+            var x = count3;
+          }
+                    if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
+            //var z = z + 1000;
+          var datax = datax  +
+                "*"+rows[i].Nome + "*"+
+                "\n" +
+                "_"+rows[i].Desc + "_" +
+                "\n" +
+                "_*"+rows[i].Zap + "*_" +
+                "\n\n" 
+          }
+          var datax2 = datax;
+          if (rows[i].Desc.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false && datax2.length < 10) {
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
