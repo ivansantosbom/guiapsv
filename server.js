@@ -264,7 +264,7 @@ getDoc().then(doc => {
                 "\n\n" 
           }
           var datax2 = datax;
-          if (rows[i].Desc.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false && datax2.length < 10) {
+          if (rows[i].Desc.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false && datax2.length < 12) {
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
