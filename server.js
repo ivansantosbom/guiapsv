@@ -312,10 +312,10 @@ var user_input = user_input.replace("alguem", "");
           //var datax2 = datax3;
          // console.log(datax3.length);
           if (datax3.length < 10) {
-            var user_input = user_input.filter(e => e !== 'vendo');
-            var user_input = user_input.filter(e => e !== 'alugo');
-            var user_input = user_input.filter(e => e !== 'casa');
-          if (comp.includes(user_input[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
+            var user_input2 = user_input.filter(e => e !== 'vendo');
+            var user_input2 = user_input.filter(e => e !== 'alugo');
+            var user_input2 = user_input.filter(e => e !== 'casa');
+          if (comp.includes(user_input2[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
