@@ -315,7 +315,7 @@ var user_input = user_input.replace("alguem", "");
           } 
           //var datax2 = datax3;
          // console.log(datax3.length);
-          if (datax3.length < 10) {
+          if (datax3.length > 10000) {
             var user_input3 = user_input.filter(e => e !== 'vendo');
             var user_input3 = user_input.filter(e => e !== 'alugo');
             var user_input3 = user_input.filter(e => e !== 'casa');
