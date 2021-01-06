@@ -247,6 +247,7 @@ getDoc().then(doc => {
                     var user_input = user_input.replace("tenha ", "");
           var user_input = user_input.replace("para ", "");
           var user_input = user_input.replace("alguém", "");
+          var user_input = user_input.replace("que ", "");
                     var user_input = user_input.replace("uma", "");
                     var user_input = user_input.replace("são vicente", "");
                     var user_input = user_input.replace("roncalle", "");
