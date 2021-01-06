@@ -228,7 +228,7 @@ getDoc().then(doc => {
           var user_input = user_input.replace("boa noite", "");
           var user_input = user_input.replace("número", "");
           var user_input = user_input.replace("numero", "");
-          
+
           var user_input = user_input.split(" ");
           user_input = user_input.filter(function(item) { 
   return item.length > 2;
@@ -246,6 +246,13 @@ getDoc().then(doc => {
           if (x > count3) {
             var x = count3;
           }
+          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('lado'));
+          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('perto'));
+          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('depois'));
+          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('proximo'));
+          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('próximo'));
+          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('na rua'));
+          
                     if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
             //var z = z + 1000;
           var datax = datax  +
