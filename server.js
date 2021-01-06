@@ -233,6 +233,13 @@ getDoc().then(doc => {
           var user_input = user_input.replace("número", "");
           var user_input = user_input.replace("numero", "");
           var user_input = user_input.replace("abert", "");
+          var user_input = user_input.replace("pra ", "");
+                    var user_input = user_input.replace("que ", "");
+                    var user_input = user_input.replace("atenda ", "");
+                    var user_input = user_input.replace("atende ", "");
+                    var user_input = user_input.replace("venha ", "");
+                    var user_input = user_input.replace("tenha ", "");
+          var user_input = user_input.replace("para ", "");
           var user_input = user_input.replace("alguém", "");
 var user_input = user_input.replace("alguem", "");
           var user_input = user_input.replace("alguma", "");
@@ -270,6 +277,7 @@ var user_input = user_input.replace("alguem", "");
           //console.log(comp);
             //        if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
             //var z = z + 1000;
+          var user_input = user_input.filter(e => e !== 'com'); 
           if (datax3.includes(rows[i].Desc) === false) {
           if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true) {
           var datax3 = datax3  +
@@ -299,6 +307,7 @@ var user_input = user_input.replace("alguem", "");
           if (datax3.length < 10) {
             var user_input = user_input.filter(e => e !== 'vendo');
             var user_input = user_input.filter(e => e !== 'alugo');
+            var user_input = user_input.filter(e => e !== 'casa');
           if (comp.includes(user_input[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
             //var z = z + 1000;
           var datax = datax  +
