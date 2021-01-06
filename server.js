@@ -246,15 +246,17 @@ getDoc().then(doc => {
           if (x > count3) {
             var x = count3;
           }
-          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('lado'));
-          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('perto'));
-          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('depois'));
-          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('proximo'));
-          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('próximo'));
-          rows[i].Desc = rows[i].Desc.substring(0, rows[i].Desc.indexOf('na rua'));
+          var comp = rows[i].Desc;
+          var comp = comp.substring(0, comp.indexOf('lado'));
+          var comp = comp.substring(0, comp.indexOf('perto'));
+          var comp = comp.substring(0, comp.indexOf('depois'));
+          var comp = comp.substring(0, comp.indexOf('proximo'));
+          var comp = comp.substring(0, comp.indexOf('próximo'));
+          var comp = comp.substring(0, comp.indexOf('na rua'));
           
-                    if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
+            //        if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
             //var z = z + 1000;
+          if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
@@ -264,7 +266,7 @@ getDoc().then(doc => {
                 "\n\n" 
           }
           var datax2 = datax;
-          if (rows[i].Desc.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false && datax2.length < 12) {
+          if (comp.includes(user_input[z]) === true && datax.includes(rows[i].Nome) === false && datax2.length < 12) {
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
