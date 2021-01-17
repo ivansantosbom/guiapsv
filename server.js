@@ -295,10 +295,11 @@ var user_input = user_input.replace("alguem", "");
           var user_input = user_input.filter(e => e !== 'com'); 
           if (datax3.includes(rows[i].Desc) === false) {
           if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true) {
+           var userc = rows[i].Desc.trim();
           var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+rows[i].Desc + "_" +
+                "_"+ userc + "_" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
