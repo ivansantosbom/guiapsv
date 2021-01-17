@@ -136,6 +136,8 @@ getDoc().then(doc => {
    //   }
    // ];
   var desc2 = desc.toLowerCase();
+  var desc2 = desc2.replace(".", " ");
+  var desc2 = " " + desc2 + " ";
   let sheet; 
 getDoc().then(doc => {
     sheet = doc.sheetsByIndex[0];
@@ -214,7 +216,7 @@ getDoc().then(doc => {
           var user_input = user_input.replace("pode ", "");
           var user_input = user_input.replace("tel ", "");
           var user_input = user_input.replace("contato ", "");
-          var user_input = user_input.replace("entrega", "");
+          var user_input = user_input.replace("entrega ", "");
                     var user_input = user_input.replace("passar", "");
                     var user_input = user_input.replace("enviar", "");
                     var user_input = user_input.replace("mandar", "");
@@ -222,10 +224,10 @@ getDoc().then(doc => {
           var user_input = user_input.replace("ado ", "");
           var user_input = user_input.replace("ido ", "");
           var user_input = user_input.replace("ndo ", "");
-          var user_input = user_input.replace("ado", "");
-          var user_input = user_input.replace("ido", "");
-          var user_input = user_input.replace("ndo", "");
-          var user_input = user_input.replace("vende", "vendo ");
+          //var user_input = user_input.replace("ado", "");
+          //var user_input = user_input.replace("ido", "");
+          //var user_input = user_input.replace("ndo", "");
+          var user_input = user_input.replace("vende ", "vendo ");
           var user_input = user_input.replace("venda", "vendo ");
           var user_input = user_input.replace("aluga", "alugo ");
           var user_input = user_input.replace("alugu", "alugo ");
@@ -257,7 +259,9 @@ var user_input = user_input.replace("alguem", "");
           var user_input = user_input.replace("algum", "");
           var user_input = user_input.replace("tv", "televisao "); 
           var user_input = user_input.trim();
-          var user_input = user_input.split(" ");
+          var user_input = " " + user_input + " ";
+          var user_input = user_input.replace(" ", "  ");
+          var user_input = user_input.split("  ");
           user_input = user_input.filter(function(item) { 
   return item.length > 2;
 });
