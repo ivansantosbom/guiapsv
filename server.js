@@ -309,10 +309,11 @@ var user_input = user_input.replace("alguem", "");
                     if (datax3.includes(rows[i].Desc) === false) {
                       
           if (comp.includes(user_input[xn]) === true && comp.includes(user_input[z]) === true) {
+            var userc = rows[i].Desc.trim();
           var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+rows[i].Desc + "_" +
+                "_"+ userc + "_" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
@@ -325,11 +326,12 @@ var user_input = user_input.replace("alguem", "");
             var user_input3 = user_input.filter(e => e !== 'alugo');
             var user_input3 = user_input.filter(e => e !== 'casa');
           if (comp.includes(user_input3[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
+            var userc = rows[i].Desc.trim();
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+rows[i].Desc + "_" +
+                "_"+ userc + "_" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
