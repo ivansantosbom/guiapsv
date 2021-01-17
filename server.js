@@ -258,10 +258,11 @@ var user_input = user_input.replace("alguem", "");
           var user_input = user_input.replace("alguma", "");
           var user_input = user_input.replace("algum", "");
           var user_input = user_input.replace("tv", "televisao "); 
+          var user_input = user_input.replace("  ", " ");
           var user_input = user_input.trim();
           var user_input = " " + user_input + " ";
-          var user_input = user_input.replace(" ", "  ");
-          var user_input = user_input.split("  ");
+          var user_input = user_input.replace(" ", " - ");
+          var user_input = user_input.split("-");
           user_input = user_input.filter(function(item) { 
   return item.length > 2;
 });
