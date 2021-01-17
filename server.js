@@ -209,6 +209,9 @@ getDoc().then(doc => {
           console.log(user_input);
           var user_input = user_input.toLowerCase();
           var user_input = user_input.replace("?", "");
+          var user_input = user_input.replace("?", "");
+          var user_input = user_input.replace("?", "");
+          var user_input = user_input.replace("?", "");
           var user_input = user_input.replace("compr", "");
           var user_input = user_input.replace("tem ", "");
           var user_input = user_input.replace("sabe ", "");
@@ -260,9 +263,10 @@ var user_input = user_input.replace("alguem", "");
           var user_input = user_input.replace("tv", "televisao "); 
           var user_input = user_input.replace("  ", " ");
           var user_input = user_input.trim();
-          var user_input = " " + user_input + " ";
-          var user_input = user_input.replace(" ", " - ");
-          var user_input = user_input.split("-");
+         // var user_input = " " + user_input + " ";
+         // var user_input = user_input.replace(" ", " - ");
+          var user_input = user_input.split(" "); 
+          
           user_input = user_input.filter(function(item) { 
   return item.length > 2;
 });
@@ -278,6 +282,9 @@ var user_input = user_input.replace("alguem", "");
         for (i = 0; i < count2; i++) {
           var x = z + 1;
           var xn = z - 1;
+          user_input[z] = " " + user_input[z] + " ";
+            user_input[x] = " " + user_input[x] + " ";
+            user_input[xn] = " " + user_input[xn] + " ";
        //   if (x > count3) {
        //     var x = count3;
        //   }
@@ -296,11 +303,11 @@ var user_input = user_input.replace("alguem", "");
           var user_input = user_input.filter(e => e !== 'com'); 
           if (datax3.includes(rows[i].Desc) === false) {
           if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true) {
-           var userc = rows[i].Desc.trim();
+        //   var userc = rows[i].Desc.trim();
           var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+ userc + "_" +
+                "_"+ rows[i].Desc.trim() + "_" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
@@ -310,11 +317,11 @@ var user_input = user_input.replace("alguem", "");
                     if (datax3.includes(rows[i].Desc) === false) {
                       
           if (comp.includes(user_input[xn]) === true && comp.includes(user_input[z]) === true) {
-            var userc = rows[i].Desc.trim();
+           // var userc = rows[i].Desc.trim();
           var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+ userc + "_" +
+                "_"+ rows[i].Desc.trim() + "_" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
@@ -327,12 +334,12 @@ var user_input = user_input.replace("alguem", "");
             var user_input3 = user_input.filter(e => e !== 'alugo');
             var user_input3 = user_input.filter(e => e !== 'casa');
           if (comp.includes(user_input3[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
-            var userc = rows[i].Desc.trim();
+           // var userc = rows[i].Desc.trim();
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+ userc + "_" +
+                "_"+ rows[i].Desc.trim() + "_" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
@@ -368,4 +375,4 @@ var user_input = user_input.replace("alguem", "");
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
-}); 
+});
