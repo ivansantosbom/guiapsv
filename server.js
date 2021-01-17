@@ -260,17 +260,22 @@ getDoc().then(doc => {
 var user_input = user_input.replace("alguem", "");
           var user_input = user_input.replace("alguma", "");
           var user_input = user_input.replace("algum", "");
-          var user_input = user_input.replace("tv", "televisao "); 
-          var user_input = user_input.replace("  ", " ");
+          var user_input = user_input.replace("tv", "televisao ");
+          var user_input = user_input.replace(" ", "!-");
+          var user_input = user_input.replace(" ", "!-");
+          var user_input = user_input.replace(" ", "!-");
+          var user_input = user_input.replace(" ", "!-");
+          var user_input = user_input.replace(" ", "!-");
           var user_input = user_input.trim();
          // var user_input = " " + user_input + " ";
-         // var user_input = user_input.replace(" ", " - ");
-          var user_input = user_input.split(" "); 
+         
+          var user_input = user_input.split("!"); 
           
           user_input = user_input.filter(function(item) { 
-  return item.length > 2;
+  return item.length > 3;
 });
-              var count3 = user_input.length;
+          
+          var count3 = user_input.length;
           //agent.add(user_input);
     var datax = '';
               var datax3 = '';
@@ -282,9 +287,6 @@ var user_input = user_input.replace("alguem", "");
         for (i = 0; i < count2; i++) {
           var x = z + 1;
           var xn = z - 1;
-         var z555 = " " + user_input[z] + " ";
-          var  x555 = " " + user_input[x] + " ";
-          var  xn555 = " " + user_input[xn] + " ";
        //   if (x > count3) {
        //     var x = count3;
        //   }
@@ -296,18 +298,19 @@ var user_input = user_input.replace("alguem", "");
           var comp = comp.split("depois")[0];
           var comp = comp.split("proximo")[0];
                     var comp = comp.split("frente")[0];
-
+          var comp = " " + comp;
+          var comp = comp.replace(" ", "-");
           //console.log(comp);
             //        if (rows[i].Desc.includes(user_input[z]) === true && rows[i].Desc.includes(user_input[x]) === true && datax.includes(rows[i].Nome) === false) {
             //var z = z + 1000;
           var user_input = user_input.filter(e => e !== 'com'); 
           if (datax3.includes(rows[i].Desc) === false) {
-          if (comp.includes(z555) === true && comp.includes(x555) === true) {
+          if (comp.includes(user_input[z]) === true && comp.includes(user_input[x]) === true) {
         //   var userc = rows[i].Desc.trim();
           var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+ rows[i].Desc.trim() + "_" +
+                ""+ rows[i].Desc + "" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
@@ -316,12 +319,12 @@ var user_input = user_input.replace("alguem", "");
           
                     if (datax3.includes(rows[i].Desc) === false) {
                       
-          if (comp.includes(xn555) === true && comp.includes(z555) === true) {
+          if (comp.includes(user_input[xn]) === true && comp.includes(user_input[z]) === true) {
            // var userc = rows[i].Desc.trim();
           var datax3 = datax3  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+ rows[i].Desc.trim() + "_" +
+                ""+ rows[i].Desc + "" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
@@ -333,14 +336,14 @@ var user_input = user_input.replace("alguem", "");
             var user_input3 = user_input.filter(e => e !== 'vendo');
             var user_input3 = user_input.filter(e => e !== 'alugo');
             var user_input3 = user_input.filter(e => e !== 'casa');
-            var z3 = " " + user_input3[z] + " ";
-          if (comp.includes(z3) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
+           // var z3 = " " + user_input3[z] + " ";
+          if (comp.includes(user_input3[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
            // var userc = rows[i].Desc.trim();
             //var z = z + 1000;
           var datax = datax  +
                 "*"+rows[i].Nome + "*"+
                 "\n" +
-                "_"+ rows[i].Desc.trim() + "_" +
+                ""+ rows[i].Desc + "" +
                 "\n" +
                 "_*"+rows[i].Zap + "*_" +
                 "\n\n" 
