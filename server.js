@@ -265,6 +265,7 @@ var user_input = user_input.replace("alguem", "");
                     var user_input = user_input.replace(" no ", "");
                     var user_input = user_input.replace(" na ", "");
           var user_input = user_input.replace("tv", "televisao ");
+          var user_input = user_input.replace("arredor", "");
           var user_input = user_input.replace(" ", "-!-");
           var user_input = user_input.replace(" ", "-!-");
           var user_input = user_input.replace(" ", "-!-");
