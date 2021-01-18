@@ -257,6 +257,8 @@ getDoc().then(doc => {
 var user_input = user_input.replace("alguem", "");
           var user_input = user_input.replace("alguma", "");
           var user_input = user_input.replace("algum", "");
+          var user_input = user_input.replace("indica", "");
+          var user_input = user_input.replace("personalizado", "");
                     var user_input = user_input.replace(" de ", " ");
                     var user_input = user_input.replace(" em ", " ");
                     var user_input = user_input.replace(" no ", "");
@@ -386,6 +388,13 @@ var user_input = user_input.replace("alguem", "");
             var user_input3 = user_input.filter(e => e !== '-alugo');
             var user_input3 = user_input.filter(e => e !== '-casa');
              var user_input3 = user_input.filter(e => e !== '-entrega');
+            var user_input3 = user_input.filter(e => e !== '-máquina');
+            var user_input3 = user_input.filter(e => e !== '-fazer');
+            var user_input3 = user_input.filter(e => e !== '-maquina');
+            var user_input3 = user_input.filter(e => e !== '-grupo');
+            var user_input3 = user_input.filter(e => e !== '-disponível');
+            var user_input3 = user_input.filter(e => e !== '-hoje');
+            var user_input3 = user_input.filter(e => e !== '-amanhã');
            // var z3 = " " + user_input3[z] + " ";
           if (comp.includes(user_input3[z]) === true && datax.includes(rows[i].Desc) === false && datax3.length < 10) {
            // var userc = rows[i].Desc.trim();
