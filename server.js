@@ -250,6 +250,7 @@ getDoc().then(doc => {
           var user_input = user_input.replace(".", " ");
           var user_input = user_input.replace(".", " ");
           var user_input = user_input.replace("numero", "");
+          var user_input = user_input.replace("pedido", "");
           var user_input = user_input.replace("abert", "");
           var user_input = user_input.replace("pra ", " ");
           var user_input = user_input.replace("trabalha", "");
