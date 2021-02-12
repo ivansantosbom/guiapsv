@@ -207,13 +207,14 @@ getDoc().then(doc => {
            var user_input = request.body.queryResult.queryText;
                      var user_input2 = request.body.queryResult.queryText;
           console.log(user_input);
-          var iz;
-          for (iz = 0; iz < 5; iz++) {
+          var c;
+          for (c = 0; c < 5; c++) {
           var user_input = user_input.toLowerCase();
           var user_input = user_input.replace("?", "");
           var user_input = user_input.replace("?", "");
           var user_input = user_input.replace("?", "");
           var user_input = user_input.replace("?", "");
+          var user_input = user_input.replace("/", " ");
           var user_input = user_input.replace("compr", "");
           var user_input = user_input.replace("tem ", " ");
           var user_input = user_input.replace("sabe ", " ");
@@ -295,13 +296,14 @@ getDoc().then(doc => {
           var user_input = user_input.replace(" ", "-!-");
           var user_input = user_input.replace(" ", "-!-");
           var user_input = user_input.replace(" ", "-!-");
+            }
           var user_input = user_input.trim();
          // var user_input = " " + user_input + " ";
-         }
+         
           var user_input = user_input.split("!"); 
           
           user_input = user_input.filter(function(item) { 
-  return item.length > 3;
+  return item.length > 4;
 });
           
           var count3 = user_input.length;
@@ -326,7 +328,7 @@ getDoc().then(doc => {
           var comp = comp.split("próximo")[0];
           var comp = comp.split("depois")[0];
           var comp = comp.split("proximo")[0];
-                    var comp = comp.split("frente")[0];
+          var comp = comp.split("frente")[0];
           var comp = " " + comp;
           var comp = comp.replace(" ", "-");
           var comp = comp.replace(" ", "-");
