@@ -19,7 +19,7 @@ app.use(
 app.use(express.static("public"));
 app.get("/", (request, response) => {
  // response.sendFile(__dirname + "/views/index.html");
-  return res.send("Live !");
+  response.send("Live !");
 });
 
 app.get("/hoo",(req,res) => {
