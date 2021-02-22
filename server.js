@@ -17,8 +17,12 @@ app.use(
 
 // https://expressjs.com/en/starter/basic-routing.html
 app.use(express.static("public"));
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
+//app.get("/", (request, response) => {
+//  response.sendFile(__dirname + "/views/index.html");
+//});
+
+app.get('/',(request,response) => {
+return res.send('Live !');
 });
 
 app.post("/guiapsv", function(request, response) {
