@@ -21,8 +21,8 @@ app.use(express.static("public"));
 //  response.sendFile(__dirname + "/views/index.html");
 //});
 
-app.get('/',(request,response) => {
-return res.send('Live !');
+app.get("/hoo",(request,response) => {
+return res.send("Live !");
 });
 
 app.post("/guiapsv", function(request, response) {
