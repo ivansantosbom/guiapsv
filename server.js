@@ -452,7 +452,7 @@ getDoc().then(doc => {
 //              datax  +
 //                "\n\n" +
 //                "_Para Voltar ao Menu Inicial Digite *OK*_"
-"fulfillmentText": "_Quer o seu negócio aqui no topo ? Conheça nossa proposta_" + "\n\n" + final  +
+"fulfillmentText": "_Bateu aquela fome ? O App Lanchee Está chegando pra fazer voce feliz aqui em São Vicente e arredores 😎_" + "\n\n" + final  +
                 "\n" +
             msgx +
             "\n" +
